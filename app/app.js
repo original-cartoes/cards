@@ -2,28 +2,34 @@ angular
   .module('app', ['cardDetail', 'cardList', 'invoiceHistory', 'invoiceClosed', 'invoiceOpened'])
   .controller('appController', function($scope, CardDetailService, CardListService, InvoiceHistoryService, invoiceClosedService, invoiceOpenedService) {
     
-    $scope.name = 'OKK';
-
     $scope.card = {};
+    $scope.invoiceOpened = {};
+    $scope.invoiceClosed = {};
 
     CardDetailService.detail().then(function(card) {
-      console.log(card);
       $scope.card = card;
     });
 
-    /*CardListService.list().then(function(items) {
+    $scope.invoiceOpened = function() {
+      invoiceOpenedService.invoice().then(function(invoice) {
+        $scope.invoiceOpened = invoice;
+      });
+    };
+
+    $scope.invoiceClosed = function() {
+      invoiceClosedService.invoice().then(function(invoice) {
+        $scope.invoiceOpened = invoice;
+      });
+    };
+
+    /*
+    CardListService.list().then(function(items) {
       debugger;
     });
 
     InvoiceHistoryService.listHistory().then(function(items){
       debugger;
     });
+    */
 
-    invoiceClosedService.invoice().then(function(items) {
-      debugger;
-    });
-
-    invoiceOpenedService.invoice().then(function(items) {
-      debugger;
-    });*/
   });
