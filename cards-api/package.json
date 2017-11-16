@@ -1,0 +1,17 @@
+{
+  "name": "cards-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "hapi": "^16.6.2",
+    "hapi-cors": "^1.0.1",
+    "request": "^2.83.0"
+  }
+}
