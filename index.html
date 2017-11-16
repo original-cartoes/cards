@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ng-controller="appController">
         <h1>Banco Original - Cards</h1>
 
         <!-- cartões -->
@@ -36,13 +36,13 @@
         <p>Abaixo estão as informações bacanas sobre os seus cartões</p>
         <div class="panel-group">
           <div class="panel panel-default">
-            <div class="panel-heading"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> NUMERO DO CARTAO - TIPOCARTAO</div>
+            <div class="panel-heading"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> {{ card.number }} - {{ card.type }}</div>
             <div class="panel-body">
                 <ul class="list-group">
-                    <li class="list-group-item"><p>Número:</p> number</li>
-                    <li class="list-group-item"><p>Ano Expiração:</p>expire_year</li>
-                    <li class="list-group-item"><p>Mês Expiração:</p>expire_month</li>
-                    <li class="list-group-item"><p>Dono:</p>holder_name</li>
+                    <li class="list-group-item"><p>Número:</p> {{ card.number }}</li>
+                    <li class="list-group-item"><p>Ano Expiração:</p> {{ card.expire_year }}</li>
+                    <li class="list-group-item"><p>Mês Expiração:</p> {{ card.expire_month }}</li>
+                    <li class="list-group-item"><p>Dono:</p>{{ card.holder_name }}</li>
                 </ul>                    
                 <!--    
                 {
@@ -75,17 +75,7 @@
                 <h4 class="modal-title">Fatura Aberta</h4>
             </div>
             <div class="modal-body">
-                <!-- TODO: iterar cada uma das faturas -->
-                <div>
-                    <p style="color:red"><b>Valor a pagar:</b> R$ amount</p>
-                    <!-- TODO: iterar cada uma das transações -->
-                    <ul class="list-group">
-                        <li class="list-group-item"><p>Data:</p> date</li>
-                        <li class="list-group-item"><p>Tipo:</p>type</li>
-                        <li class="list-group-item"><p>Descrição:</p>description</li>
-                        <li class="list-group-item"><p>Valor:</p>amount</li>
-                    </ul>
-                </div>                  
+                <p>Nenhum registro encontrado.</p>         
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -103,9 +93,7 @@
                 <h4 class="modal-title">Faturas Fechadas</h4>
             </div>
             <div class="modal-body">
-                <code>
-                    json
-                </code>
+                <p>Nenhum registro encontrado.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -123,9 +111,7 @@
                 <h4 class="modal-title">Histórico de Faturas</h4>
             </div>
             <div class="modal-body">
-                <code>
-                    json
-                </code>
+                <p>Nenhum registro encontrado.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
