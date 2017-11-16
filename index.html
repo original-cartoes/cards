@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="pt-BR" ng-app="app">
 
 <head>
-    <title></title>
+    <title>Banco Original - Cards</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="bower_components/angular/angular.js"></script>
     <script src="app/card-detail.js"></script>
     <script src="app/card-list.js"></script>
@@ -12,12 +14,126 @@
     <script src="app/opened-invoice.js"></script>
     <script src="app/invoice-history.js"></script>
     <script src="app/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- bootstrap lindão -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div ng-controller="appController as vm">
-        <div>{{vm.name}}</div>
+    <div class="container">
+        <h1>Banco Original - Cards</h1>
+
+        <!-- cartões -->
+        <!-- TODO: Iterar cada um dos cartões -->
+        <h2>Cartões</h2>
+        <p>Abaixo estão as informações bacanas sobre os seus cartões</p>
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> NUMERO DO CARTAO - TIPOCARTAO</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><p>Número:</p> number</li>
+                    <li class="list-group-item"><p>Ano Expiração:</p>expire_year</li>
+                    <li class="list-group-item"><p>Mês Expiração:</p>expire_month</li>
+                    <li class="list-group-item"><p>Dono:</p>holder_name</li>
+                </ul>                    
+                <!--    
+                {
+                    "number": "0001",
+                    "expire_year": "2023",
+                    "expire_month": "10",
+                    "holder_name": "JANE DOE",
+                    "type": "Mastercard Black",
+                    "direct_debit": true,
+                    "purchase_limit": 10000,
+                    "available_limit": 9000,
+                    "spent": 1000,
+                    "payment_day": "20"
+                } -->
+            </div>
+            <div class="panel-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#faturas-abertas"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Faturas abertas</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#faturas-fechadas"><i class="fa fa-envelope" aria-hidden="true"></i> Faturas fechadas</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#historico-faturas"><i class="fa fa-list-ul" aria-hidden="true"></i> Histórico de faturas</button>
+            </div>
+          </div>
     </div>
+
+    <!-- Faturas Abertas -->
+    <div class="modal fade" id="faturas-abertas" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Fatura Aberta</h4>
+            </div>
+            <div class="modal-body">
+                <!-- TODO: iterar cada uma das faturas -->
+                <div>
+                    <p style="color:red"><b>Valor a pagar:</b> R$ amount</p>
+                    <!-- TODO: iterar cada uma das transações -->
+                    <ul class="list-group">
+                        <li class="list-group-item"><p>Data:</p> date</li>
+                        <li class="list-group-item"><p>Tipo:</p>type</li>
+                        <li class="list-group-item"><p>Descrição:</p>description</li>
+                        <li class="list-group-item"><p>Valor:</p>amount</li>
+                    </ul>
+                </div>                  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Faturas Fechadas -->
+    <div class="modal fade" id="faturas-fechadas" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Faturas Fechadas</h4>
+            </div>
+            <div class="modal-body">
+                <code>
+                    json
+                </code>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Histórico de Faturas -->
+    <div class="modal fade" id="historico-faturas" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Histórico de Faturas</h4>
+            </div>
+            <div class="modal-body">
+                <code>
+                    json
+                </code>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
