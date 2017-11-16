@@ -1,0 +1,14 @@
+{
+  "name": "cards-original",
+  "homepage": "https://github.com/original-cartoes/cards",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
