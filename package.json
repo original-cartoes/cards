@@ -1,0 +1,22 @@
+{
+  "name": "cards-original",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm i -g http-server",
+    "start": "http-server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/original-cartoes/cards.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/original-cartoes/cards/issues"
+  },
+  "homepage": "https://github.com/original-cartoes/cards#readme"
+}
