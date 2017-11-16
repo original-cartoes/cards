@@ -6,7 +6,7 @@ angular
       debugger;
     });
 
-    // CardListService.list().then(function(items) {
-    //   debugger;
-    // });
+    CardListService.list().then(function(items) {
+      debugger;
+    });
   });
