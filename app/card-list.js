@@ -14,7 +14,7 @@ angular.module('cardList', []).service('CardListService', function($http) {
       };
       return $http(req)
         .then(function(items) {
-          debugger;
+          return items;
         })
         .catch(error => {
           throw new Error(error);
