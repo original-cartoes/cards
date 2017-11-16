@@ -1,8 +1,12 @@
 angular
-  .module('app', ['cardDetail'])
-  .controller('appController', function(CardDetailService) {
+  .module('app', ['cardDetail', 'cardList'])
+  .controller('appController', function(CardDetailService, CardListService) {
     this.name = CardDetailService.name;
-    CardDetailService.list().then(function(items) {
+    // CardDetailService.detail().then(function(items) {
+    //   debugger;
+    // });
+
+    CardListService.list().then(function(items) {
       debugger;
     });
   });
