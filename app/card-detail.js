@@ -5,11 +5,11 @@ angular.module('cardDetail', []).service('CardDetailService', function($http) {
       var req = {
         method: 'GET',
         url:
-          'https://cards-original.herokuapp.com?url=https://sandbox.original.com.br/cards/v1/0001',
+          'http://localhost:3000/?url=https://sandbox.original.com.br/cards/v1',
       };
       return $http(req)
         .then(function(items) {
-          debugger;
+          return items.data;
         })
         .catch(error => {
           throw new Error(error);
